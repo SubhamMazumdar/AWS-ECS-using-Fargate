@@ -34,9 +34,9 @@ https://your_aws_account_id.signin.aws.amazon.com/console/
 ## Create ECS with Fargate launch type
 1) Login to the AWS Console using the new IAM user created. Navigate to [https://http://console.aws.amazon.com/](http://console.aws.amazon.com/) to login.
 2) Select `IAM user` type and enter the 12 digit account id and click `next`.
-![Login1](/images/Login1.png)
+![Login1](/images/Login1.png =200x300)
 3) If the ID is valid you will be prompted to enter the username and password. Enter the username and password to login.
-![Login2](/images/Login2.png)
+![Login2](/images/Login2.png =200x300)
 4) In the AWS console, type `ECS` in the `Find Services` search text box and click on the `Elastic Container Services` from the popped list.
 ![ECS1](/images/ECS1.png)
 5) In the ECS console, choose clusters from the left pane and click on `Create Cluster` button.
