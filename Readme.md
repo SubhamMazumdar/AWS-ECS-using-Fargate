@@ -1,7 +1,18 @@
 # AWS Elastic Container Service (ECS) with AWS Fargate launch type
 AWS Fargate is a highly scalable, fast container management service that helps you to run, stop and manage your containerized applications. ECS supports two launch types: AWS Fargate launch type and AWS EC2 launch type. AWS Fargate launch type allows you to run your tasks and services in serverless infrastructure managed by Amazon ECS.
 
-To deploy the containers in ECS you need to create an ECS cluster with user that has `administratorAccess` permissions.
+To deploy the containers in ECS you need to create an ECS cluster with user that has `administratorAccess` permissions. This Lab covers the following topics.
+* Creating IAM user with Admin privillages.
+* Creating ECS cluster with Fargate launch type.
+* Create and push docker images to ECR.
+* Create Task defenition for containers
+* Configure the VPC, Security group and Application Load Balancer.
+* Create and deploy service and Tasks.
+
+## Prerequisites
+* AWS Subscription
+* AWS CLI 
+* Docker Desktop for Windows/Linux
 
 ## Create user with Administrator privillages
 1) Use your AWS account email address and password to sign in as the AWS account root user to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
@@ -51,6 +62,22 @@ https://your_aws_account_id.signin.aws.amazon.com/console/
 ![ECS5](/images/ECS5.png)
 11) Click on the `View cluster` button to see the cluster details.
 ![ECS6](/images/ECS6.png)
+## Upload application image to ECR
+1) Open the ECS dashboard, and choose the `Repositories` from the left pane.
+![ECR1](/images/ECR1.png)
+2) In the ECR console, click on the `Create repository` button.
+![ECR2](/images/ECR2.png)
+3) Provide a repository name in the `Repository name` textbox. Click on `Create repository` button.
+![ECR3](/images/ECR3.png)
+4) Once the repository is created, click on the repository name.
+![ECR4](/images/ECR4.png)
+5) In the repository page, you can see an empty list of pushed images. To push a new image to the repository, you need to authenticate to the ECR and run the `docker push` command. To view the commands to upload a docker image to repository, click on the `View Push Commands` button.
+![ECR5](/images/ECR5.png)
+6) You can use the aws CLI command or Windows PowerShell command to authenticate and push the image. Choose the `Mac/Linux` tab if you want to perform using the `aws cli`.
+![ECR6](/images/ECR6.png)
+7) Execute the commands to create and push your application docker image. After the push operation is completed, you can see the image in the repository.
+![ECR7](/images/ECR7.png)
+8) You can use the image URI for deploying containers in your ECS cluster.
 
 ## Configure VPC, Security Group and Load Balancer
 ### Update VPC name
